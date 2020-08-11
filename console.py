@@ -62,40 +62,40 @@ class HBNBCommand(cmd.Cmd):
         """ Overrides the emptyline method of CMD """
         pass
 
-    def aux(self, line):
+    def do_create(self, line):
+        """ Create an object of any class"""
         """Reformat command line for advanced command syntax.
 
         Usage: <class name>.<command>([<id> [<*args> or <**kwargs>]])
         (Brackets denote optional fields in usage example.)
         """
+        list_line = line.split(" ")
+        name_class = list_line[0]
 
-
-    def do_create(self, line):
-        """ Create an object of any class"""
-
-        try:
-
-            list_line = line.split(" ")
-            name_class = list_line[0]
-            if len(list_line) > 1:
-                list_line = list_line[1:]
-                for i in list_line:
-                    paramters = list_line[1].split("=")
-                    if len(paramters) == 2:
-                        key = paramters[0]
-                        value = paramters[1]
-                        if value[0] == '"' and value[-1] == '"'
-                            
-
-        except SyntaxError:
+        if not line:
             print("** class name missing **")
-        except NameError:
+            return
+        elif not (name_class in HBNBCommand.classes):
             print("** class doesn't exist **")
-
-        new_instance = HBNBCommand.classes[args]()
-        storage.save()
-        print(new_instance.id)
-        storage.save()
+            return
+        new = HBNBCommand.classes[name_class]()
+        if len(list_line) > 1:
+            list_line = list_line[1:]
+            for argument in list_line:
+                paramters = argument.split("=")
+                if len(paramters) == 2:
+                    key = paramters[0]
+                    value = paramters[1]
+                    if value[0] == '"' and value[-1] == '"':
+                        value = value[1:-1].replace("_", " ")
+                    else:
+                        try:
+                            value = int(value)
+                        except ValueError:
+                            value = float(value)
+                    setattr(new, key, value)
+        new.save()
+        print(new.id)
 
     def help_create(self):
         """ Help information for the create method """
