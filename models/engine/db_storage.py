@@ -26,7 +26,7 @@ class DBStorage:
         db_base = getenv('HBNB_MYSQL_DB')
 
         # Create a new Engine instance.
-        self.__engine = create_engine('msql+mysqldb://{}:{}@{}:3306/{}'
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}:3306/{}'
                                       .format(username,
                                               password,
                                               host,
@@ -45,14 +45,15 @@ class DBStorage:
                 # Contain all objects of my_class
                 my_query = self.__session.query(eval(my_class))
                 for obj_query in my_query:
-                    key = type(obj_query).__name__ + "." + obj_query.id
+                    key = type(obj_query).__name__ + "." + str(obj_query.id)
                     new_dict[key] = obj_query
         else:
             # Contain all objects of cls.
-            my_query = self.__session.query(eval(cls))
+            my_query = self.__session.query(cls)
             for obj_query in my_query:
-                key = type(obj_query).__name__ + "." + obj_query.id
+                key = type(obj_query).__name__ + "." + str(obj_query.id)
                 new_dict[key] = obj_query
+        return new_dict
 
     def new(self, obj):
         """Add the object to the current database session """
