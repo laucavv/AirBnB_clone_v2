@@ -17,6 +17,7 @@ class State(BaseModel, Base):
                               cascade="all, delete")
     else:
         name = ""
+
         @property
         def cities(self):
             """Attribute that returns the list of City."""
