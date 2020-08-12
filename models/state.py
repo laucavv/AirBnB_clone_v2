@@ -18,7 +18,7 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            """Attrubute that returns the list of City."""
+            """Attribute that returns the list of City."""
             list_cities = []
             all_cities = models.storage.all(City)
             for city_o in all_cities:
