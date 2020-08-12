@@ -2,6 +2,7 @@
 """DB Storage."""
 
 from os import getenv
+from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy import create_engine
 from models.amenity import Amenity
 from models.city import City
@@ -44,11 +45,31 @@ class DBStorage:
                 # Contain all objects of my_class
                 my_query = self.__session.query(eval(my_class))
                 for obj_query in my_query:
-                    key =  type(obj_query).__name__+ "." + obj_query.id
+                    key = type(obj_query).__name__ + "." + obj_query.id
                     new_dict[key] = obj_query
         else:
             # Contain all objects of cls.
-            my_query = self.__sesssion.query(eval(cls))
+            my_query = self.__session.query(eval(cls))
             for obj_query in my_query:
-                key =  type(obj_query).__name__+ "." + obj_query.id
+                key = type(obj_query).__name__ + "." + obj_query.id
                 new_dict[key] = obj_query
+
+    def new(self, obj):
+        """Add the object to the current database session """
+        self.__session.add(obj)
+
+    def save(self):
+        """ Commit all changes of the current database session """
+        self.__session.commit()
+
+    def delete(self, obj=None):
+        """ Delete from the current database session """
+        if obj is not None:
+            self.__session.delete(obj)
+
+    def reload(self):
+        """ Create all tables stored in this metadata """
+        Base.metadata.create_all(self.__engine)
+        Session = scoped_session(sessionmaker(bind=self.__engine,
+                                              expire_on_commit=False))
+        self.__session = Session()
