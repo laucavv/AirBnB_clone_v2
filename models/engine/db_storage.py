@@ -34,7 +34,7 @@ class DBStorage:
                                       pool_pre_ping=True)  # test connections.
         # Drop all tables if the env == test
         if getenv('HBNB_ENV') == 'test':
-            Base.metadata.drop_all(self.__engine)
+            Base.metadata.drop_all(bind=self.__engine)
 
     def all(self, cls=None):
         """Get all objects."""
