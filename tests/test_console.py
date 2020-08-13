@@ -58,7 +58,7 @@ class TestConsole(unittest.TestCase):
         """Cleaning up after each test. """
         pass
 
-    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == db, 'for databases')
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', 'for databases')
     def test_create(self):
         """ . """
         with patch("sys.stdout", new=StringIO()) as out:
@@ -76,7 +76,7 @@ class TestConsole(unittest.TestCase):
             lenn = len(out.getvalue())
             self.assertTrue(lenn > 0)
 
-    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != db, 'for file')
+    @unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') != 'db', 'for file')
     def test_create(self):
         """ . """
         with patch("sys.stdout", new=StringIO()) as out:
