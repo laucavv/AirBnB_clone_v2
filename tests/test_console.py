@@ -57,7 +57,6 @@ class TestConsole(unittest.TestCase):
         """Cleaning up after each test. """
         pass
 
-"""
     def test_create(self):
         """ . """
         with patch("sys.stdout", new=StringIO()) as out:
@@ -70,7 +69,7 @@ class TestConsole(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as out:
             self.console_o.onecmd("create")
             self.assertEqual("** class name missing **\n", out.getvalue())
-"""
+
 
 if __name__ == "__main__":
     unittest.main()
