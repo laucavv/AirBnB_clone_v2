@@ -70,6 +70,7 @@ class TestConsole(unittest.TestCase):
             self.console_o.onecmd("create")
             self.assertEqual("** class name missing **\n", out.getvalue())
 
+
 if __name__ == "__main__":
     unittest.main()
 
