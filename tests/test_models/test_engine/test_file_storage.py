@@ -12,7 +12,7 @@ from models.place import Place
 from models.review import Review
 from models.__init__ import storage
 
-
+@unittest.skipIf(os.getenv('HBNB_TYPE_STORAGE') == 'db', 'for databases')
 class test_fileStorage(unittest.TestCase):
     """ Class to test the file storage method """
 
