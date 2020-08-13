@@ -29,6 +29,12 @@ class BaseModel:
                     setattr(self, key, value_2)
                 elif not key == '__class__':
                     setattr(self, key, value)
+            if self.id is None:
+                setattr(self, 'id', str(uuid.uuid4()))
+            if self.created_at is None:
+                setattr(self, 'created_at', datetime.utcnow())
+            if self.updated_at is None:
+                setattr(self, 'updated_at', datetime.utcnow())
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.utcnow()
