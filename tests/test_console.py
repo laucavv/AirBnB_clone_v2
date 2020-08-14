@@ -108,8 +108,6 @@ class TestFileStorage(unittest.TestCase):
         exe = os.access('console.py', os.X_OK)
         self.assertTrue(exe)
 
-
-
 if __name__ == "__main__":
     unittest.main()
 
