@@ -1,4 +1,4 @@
-<center> <h1>HBNB - The Console</h1> </center>
+<center> <h1>HBNB - The Console:desktop_computer: </h1> </center>
 
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
 
@@ -35,7 +35,7 @@ This repository contains the initial stage of a student project to build a clone
 ```
 5. This prompt designates you are in the "HBnB" console. There are a variety of commands available within the console program.
 
-##### Commands
+##### Commands :keyboard:
     * create - Creates an instance based on given class
 
     * destroy - Destroys an object based on class and UUID
@@ -49,7 +49,7 @@ This repository contains the initial stage of a student project to build a clone
     * quit - Exits the program (EOF will as well)
 
 
-##### Alternative Syntax
+##### Alternative Syntax :keyboard: 
 Users are able to issue a number of console command using an alternative syntax:
 
 	Usage: <class_name>.<command>([<id>[name_arg value_arg]|[kwargs]])
@@ -70,7 +70,7 @@ Advanced syntax is implemented for the following commands:
 <center> <h2>Examples</h2> </center>
 <h3>Primary Command Syntax</h3>
 
-###### Example 0: Create an object
+###### Example 0: Create an object :floppy_disk:	
 Usage: create <class_name>
 ```
 (hbnb) create BaseModel
