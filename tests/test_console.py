@@ -62,7 +62,7 @@ class TestConsole(unittest.TestCase):
     def test_create(self):
         """ . """
         with patch("sys.stdout", new=StringIO()) as out:
-            self.console_o.onecmd("create User")
+            self.console_o.onecmd('create State name="Texas"')
             lenn = len(out.getvalue())
             self.assertTrue(lenn > 0)
         with patch("sys.stdout", new=StringIO()) as out:
@@ -80,7 +80,7 @@ class TestConsole(unittest.TestCase):
     def test_create(self):
         """ . """
         with patch("sys.stdout", new=StringIO()) as out:
-            self.console_o.onecmd("create User")
+            self.console_o.onecmd('create State name="Texas"')
             lenn = len(out.getvalue())
             self.assertTrue(lenn > 0)
         with patch("sys.stdout", new=StringIO()) as out:
