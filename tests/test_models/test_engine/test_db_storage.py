@@ -43,7 +43,7 @@ class TestDocsB(unittest.TestCase):
     @unittest.skipIf(getenv('HBNB_TYPE_STORAGE') != 'db', 'can not run file')
     def test_method_docs(self):
         """ check for method documentation """
-        for func in dir(HBNBCommand):
+        for func in dir(DBStorage):
             self.assertTrue(len(func.__doc__) > 0)
 
 
