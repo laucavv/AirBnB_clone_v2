@@ -12,7 +12,7 @@ import sys
 from os import getenv
 import MySQLdb
 import models
-
+import unittest
 
 class TestPep8B(unittest.TestCase):
     """ Check for pep8 validation. """
