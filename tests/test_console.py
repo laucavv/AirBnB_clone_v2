@@ -95,19 +95,6 @@ class TestConsole(unittest.TestCase):
             self.assertTrue(lenn > 0)
 
 
-@unittest.skipIf(getenv('HBNB_TYPE_STORAGE') != 'db', 'can not run file')
-class TestFileStorage(unittest.TestCase):
-    """ Check for functionality of Console class. """
-
-    def test_permissions(self):
-        """test read-write-execute permissions"""
-        read = os.access('console.py', os.R_OK)
-        self.assertTrue(read)
-        write = os.access('console_.py', os.W_OK)
-        self.assertTrue(write)
-        exe = os.access('console.py', os.X_OK)
-        self.assertTrue(exe)
-
 if __name__ == "__main__":
     unittest.main()
 

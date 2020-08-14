@@ -58,19 +58,5 @@ class TestDBStorage(unittest.TestCase):
         """Cleaning up after each test. """
         pass
 
-
-@unittest.skipIf(getenv('HBNB_TYPE_STORAGE') != 'db', 'can not run file')
-class TestFileStorage(unittest.TestCase):
-    """ Check for functionality of DBStorage class. """
-
-    def test_permissions(self):
-        """test read-write-execute permissions"""
-        read = os.access('models/engine/db_storage.py', os.R_OK)
-        self.assertTrue(read)
-        write = os.access('models/engine/db_storage.py', os.W_OK)
-        self.assertTrue(write)
-        exe = os.access('models/engine/db_storage.py', os.X_OK)
-        self.assertTrue(exe)
-
 if __name__ == "__main__":
     unittest.main()
