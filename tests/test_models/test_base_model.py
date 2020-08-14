@@ -8,7 +8,6 @@ import json
 import os
 
 
-@unittest.skipIf(getenv('HBNB_TYPE_STORAGE') == 'db', 'can not run database')
 class test_basemodel(unittest.TestCase):
     """ """
 
