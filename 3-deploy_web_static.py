@@ -51,7 +51,7 @@ def do_deploy(archive_path):
     return True
 
 
-def do_deploy():
+def deploy():
     """ that creates and distributes an archive to your web servers,
         using the function
     """
