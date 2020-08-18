@@ -21,7 +21,7 @@ def do_pack():
 
 
 def do_deploy(archive_path):
-    """ """
+    """funtion """
     if isfile(archive_path) is False:
         return False
 
