@@ -25,8 +25,8 @@ def C_is_fun(text):
     return 'C {}'.format(new_t)
 
 
-@app.route('/python')
-@app.route('/python/text')
+@app.route('/python/')
+@app.route('/python/<text>')
 def Python_is_fun(text='is cool'):
     """display python is <text>"""
     new_t = text.replace("_", " ")
