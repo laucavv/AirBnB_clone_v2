@@ -23,7 +23,7 @@ def list_cities(id=None):
     states_all = storage.all(State)
     state_id = "State.{}".format(id)
     if state_id in states_all.keys():
-        satates = states_all[state_id]
+        states = states_all[state_id]
     return render_template('9-states.html', states=states,
                            id=id, states_all=states_all)
 
