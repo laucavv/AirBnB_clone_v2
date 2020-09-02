@@ -30,31 +30,41 @@ button:hover {
 }
 .locations {
     border-right: 1px #DDDDDD solid;
+    float: left;
 }
 .locations h3, .amenities h3{
     font-weight: 600;
-    margin-top: 12px;
-    margin-left: 14px;
+    margin: inherit;
+    margin-top: 15px;
+    margin-left: 50px;
 }
 h4 {
     font-weight: 400;
     font-size: 14px;
-    margin-top: -11px;
-    margin-left: 14px;
+    margin: inherit;
+    margin-top: 2px;
+    margin-left: 50px;
 }
 .popover {
     background-color: #FAFAFA;
     border: 1px #DDDDDD solid;
     border-radius: 4px;
-    margin-top: 0px;
+    margin-top: 18px;
     padding: 10%;
-	display: none;
-	max-height: 300px;
+    display: none;
+    overflow: auto;
+    max-height: 300px;
+}
+.popover::-webkit-scrollbar {
+    display: none;
 }
 .popover h2 {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 5px;
+}
+.popover ul {
+    list-style-type: none;
 }
 .popover li {
     list-style-type: none;
